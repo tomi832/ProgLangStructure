@@ -1,9 +1,7 @@
 from functools import reduce
 
 def add_3_dicts(d1, d2, d3):
-    items = list(d1.items())
-    items += list(d2.items())
-    items += list(d3.items())
+    items = (list(d1.items()) + list(d2.items()) + list(d3.items()))
     return reduce(
         lambda acc, x: { **acc, x[0]: tuple(dict.fromkeys(acc.get(x[0], ()) + (x[1],)))},
         items,
