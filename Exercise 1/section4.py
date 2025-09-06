@@ -8,7 +8,7 @@ def is_prime_number(num, denom=2):
         return True
     return is_prime_number(num, denom + 1)
 
-
+"""new main function instead of being in the if statement"""
 def main():
     number = int(input("Enter a number, or a negative number to exit: "))
     while number >= 0:
