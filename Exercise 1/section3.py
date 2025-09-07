@@ -8,7 +8,6 @@ gematria = {
 
 
 def gematria_value(word):
-    """Calculate the gematria value of a Hebrew word using reduce."""
     return reduce(lambda acc, ch: acc + gematria.get(ch, 0), word, 0)
 
 print(gematria_value('יוסף'))  # Output: 6

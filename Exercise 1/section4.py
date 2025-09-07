@@ -1,5 +1,6 @@
 def is_prime_number(num, denom=2):
-    """Check if a number is prime."""
+    if num <= 0:
+        return False
     if num <= 2:
         return True
     if num % denom == 0:
@@ -8,15 +9,40 @@ def is_prime_number(num, denom=2):
         return True
     return is_prime_number(num, denom + 1)
 
-"""new main function instead of being in the if statement"""
+
+def get_twin_prime_for(num):
+    if is_prime_number(num - 2):
+        return num - 2
+    if is_prime_number(num + 2):
+        return num + 2
+    return None
+
+
+def input_number():
+    userInput = input("Enter prime number:")
+    try:
+        number = int(userInput)
+        return number
+    except ValueError:
+        print("invalid input")
+        return input_number()
+
+
 def main():
-    number = int(input("Enter a number, or a negative number to exit: "))
-    while number >= 0:
-        if is_prime_number(number):
-            print(f"{number} is a prime number.")
+    userInput = input("Enter prime number:")
+    try:
+        number = int(userInput)
+    except ValueError:
+        print("invalid input")
+        return
+    if is_prime_number(number):
+        twin_number = get_twin_prime_for(number)
+        if twin_number is not None:
+            print(twin_number)
         else:
-            print(f"{number} is not a prime number.")
-        number = int(input("Enter a number, or a negative number to exit: "))
+            print(f"invalid input")
+    else:
+       print(f"invalid input")
 
 
 if __name__ == "__main__":
