@@ -27,7 +27,12 @@ def input_number():
         print("invalid input")
         return input_number()
 
-def get_twin_primes_dict(n, current=2, result={}):
+# result being initialized to None was suggested by PyCharm itself, and i looked it up in chatgpt why is it important.
+# he said it's because using mutable default arguments can lead to unexpected behavior, because the same object will be
+# initialized once when the function is defined, and then we use the same one in every call to the function.
+def get_twin_primes_dict(n, current=2, result=None):
+    if result is None:
+        result = {}
     if current > n:
         return result
     if is_prime_number(current) and get_twin_prime_for(current) is not None:
@@ -36,9 +41,9 @@ def get_twin_primes_dict(n, current=2, result={}):
     return get_twin_primes_dict(n, current + 1, result)
 
 def main():
-    userInput = input("Enter prime number:")
+    user_input = input("Enter prime number:")
     try:
-        number = int(userInput)
+        number = int(user_input)
     except ValueError:
         print("invalid input")
         return
