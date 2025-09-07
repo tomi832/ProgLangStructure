@@ -27,6 +27,13 @@ def input_number():
         print("invalid input")
         return input_number()
 
+def get_twin_primes_dict(n, current=2, result={}):
+    if current > n:
+        return result
+    if is_prime_number(current) and get_twin_prime_for(current) is not None:
+        # had to use chatgpt to figure out the ** syntax
+        return get_twin_primes_dict(n, current + 1, {**result, current: get_twin_prime_for(current)})
+    return get_twin_primes_dict(n, current + 1, result)
 
 def main():
     userInput = input("Enter prime number:")
