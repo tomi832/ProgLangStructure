@@ -1,7 +1,7 @@
 import time
 from functools import reduce
 
-list = [x for x in range(10001)]
+l = [x for x in range(10001)]
 
 """
 i wrote it as a function so you can import it. the logic still exists as is 
@@ -18,7 +18,7 @@ if __name__ == "_main_":
     # start time measurement
     time_start = time.time()
     # subsection 1
-    transformed_list = map(lambda x: x / 2 + 2, list)
+    transformed_list = map(lambda x: x / 2 + 2, l)
     # subsection 2
     summed_list = reduce(lambda x, y: x + y, transformed_list)
     time_end = time.time()
@@ -26,8 +26,8 @@ if __name__ == "_main_":
 
     time_start = time.time()
     transformed_list = []
-    for i in range(len(list)):
-        transformed_list.append(list[i] / 2 + 2)
+    for i in range(len(l)):
+        transformed_list.append(l[i] / 2 + 2)
     summed_list = 0
     for i in range(len(transformed_list)):
         summed_list += transformed_list[i]
@@ -36,5 +36,5 @@ if __name__ == "_main_":
 
     # subsection 4
     transformed_and_summed = reduce(
-        lambda x, y: x + y / 2 + 2, map(lambda x: x / 2 + 2, list)
+        lambda x, y: x + y / 2 + 2, map(lambda x: x / 2 + 2, l)
     )
