@@ -4,6 +4,12 @@ from functools import reduce
 list = [x for x in range(10001)]
 
 
+def sum_transformed_list(list):
+    transformed_list = map(lambda x: x / 2 + 2, list)
+    summed_list = reduce(lambda x, y: x + y, transformed_list)
+    return summed_list
+
+
 if __name__ == "_main_":
     # start time measurement
     time_start = time.time()
