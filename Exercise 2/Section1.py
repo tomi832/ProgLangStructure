@@ -3,7 +3,11 @@ from functools import reduce
 
 list = [x for x in range(10001)]
 
-
+"""
+i wrote it as a function so you can import it. the logic still exists as is 
+in the main function for the excersise sake, to measure time and compare.
+i dont want to call this function in main for potential time loss while calling it.
+"""
 def sum_transformed_list(list):
     transformed_list = map(lambda x: x / 2 + 2, list)
     summed_list = reduce(lambda x, y: x + y, transformed_list)
