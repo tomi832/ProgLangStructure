@@ -10,8 +10,8 @@ i dont want to call this function in main for potential time loss while calling 
 """
 def sum_transformed_list(list):
     transformed_list = map(lambda x: x / 2 + 2, list)
-    summed_list = reduce(lambda x, y: x + y, transformed_list)
-    return summed_list
+    sum = reduce(lambda x, y: x + y, transformed_list)
+    return sum
 
 
 if __name__ == "_main_":
@@ -20,7 +20,7 @@ if __name__ == "_main_":
     # subsection 1
     transformed_list = map(lambda x: x / 2 + 2, l)
     # subsection 2
-    summed_list = reduce(lambda x, y: x + y, transformed_list)
+    sum = reduce(lambda x, y: x + y, transformed_list)
     time_end = time.time()
     print("time passed with map and reduce: ", time_end - time_start)
 
@@ -28,9 +28,9 @@ if __name__ == "_main_":
     transformed_list = []
     for i in range(len(l)):
         transformed_list.append(l[i] / 2 + 2)
-    summed_list = 0
+    sum = 0
     for i in range(len(transformed_list)):
-        summed_list += transformed_list[i]
+        sum += transformed_list[i]
     time_end = time.time()
     print("time passed with for loops: ", time_end - time_start)
 
