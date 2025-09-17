@@ -7,7 +7,7 @@ def power_function(power):
 
 
 def powers_list(max_power):
-    return map(power_function, range(max_power + 1))
+    return map(power_function, range(max_power))
 
 
 def taylor_approx(x, n):
@@ -15,8 +15,10 @@ def taylor_approx(x, n):
     return reduce(lambda acc, b: powers[b](x)/factorial(b) + acc, range(n + 1), 0)
 
 if __name__ == "__main__":
-    n = int(input("Enter number of powers:"))
+    print("Enter number of powers:")
+    n = int(input())
     powers_map = powers_list(n)  # Creates map object with power functions
+    print("Enter base:")
+    base = int(input())
     print(type(powers_map))  # <class 'map'>
-    base = int(input("Enter base:"))
     print(tuple(map(lambda f: f(base), powers_map)))
