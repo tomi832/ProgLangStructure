@@ -9,11 +9,11 @@ def non_lazy_eval():
 
 
 def main():
+    # it is not super clear to me what the assignment wants. it asks for a list of 10000 elements, but also to use lazy evaluation.
+    # Now, a generator is not a list, but making it into a list will not help us at all. it will take just as much time and memory to
+    # create the list as it would to create the list in the non-lazy evaluation (this is what i did at first so i know).
+    # So I assume the assignment wants us to compare the time it takes to create the generator vs the time it takes to create the list.
     time_start_eval = time.time()
-    # it is not super clear what the assignment wants. it asks for a list of 10000 elements, but also to use lazy evaluation.
-    # so i did use a generator and then convert it to a list, but now it takes even more time then the non-lazy version,
-    # and takes the same amount of space in memory (obviously, since both are lists now).
-    # TODO: Redo the comments
     full_list1 = lazy_eval()
     time_end_eval = time.time()
     print("Lazy evaluation took:", time_end_eval - time_start_eval, "seconds")
