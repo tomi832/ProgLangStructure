@@ -16,7 +16,3 @@ def recTuple_tail(i, accumulative_tuple):
     if i > 1000:
         return accumulative_tuple
     return recTuple_tail(i + 1, accumulative_tuple + (i,))
-
-
-if __name__ == "__main__":
-    print(thousand_tuple_tail())
